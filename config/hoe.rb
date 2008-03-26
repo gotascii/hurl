@@ -1,16 +1,16 @@
 require 'hurl/version'
 
-AUTHOR = 'FIXME full name'  # can also be an array of Authors
-EMAIL = "FIXME email"
-DESCRIPTION = "description of gem"
-GEM_NAME = 'hurl' # what ppl will type to install your gem
-RUBYFORGE_PROJECT = 'hurl' # The unix name for your project
+AUTHOR = 'Justin Marney'
+EMAIL = "gotascii@gmail.com"
+DESCRIPTION = "rb-appscript wrapper built to assist in scripting terminal events."
+GEM_NAME = 'hurl'
+RUBYFORGE_PROJECT = 'hurl'
 HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 DOWNLOAD_PATH = "http://rubyforge.org/projects/#{RUBYFORGE_PROJECT}"
 
 @config_file = "~/.rubyforge/user-config.yml"
 @config = nil
-RUBYFORGE_USERNAME = "unknown"
+RUBYFORGE_USERNAME = "gotascii"
 def rubyforge_username
   unless @config
     begin

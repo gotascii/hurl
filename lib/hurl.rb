@@ -1,5 +1,6 @@
 $:.unshift File.dirname(__FILE__)
 
-module Hurl
-  
-end
+require 'hurl/project'
+require 'hurl/session'
+require 'hurl/iterm_session'
+require 'hurl/terminal_session'

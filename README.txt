@@ -1,48 +1,82 @@
 = hurl
 
-* FIX (url)
+http://hurl.rubyforge.org
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Hurl is an Applescript wrapper built to assist in scripting terminal events.  By defining some actions in a config file (hurls.rb) you can open terminal tabs & launch applications with one command (hurl).  ITerm and Terminal.app are supported and adding new apps is fairly straight forward.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+When hurl is called from the command line with a directory path it will search for a hurls.rb file in the root and the lib directory.  Actions in this file will be executed in the order they are defined.  
+
+iTerm is the default, but you can specify other applications by placing this in your hurls file:
+
+using Terminal
+
+In order to execute a command in the tab that hurl was called from:
+
+this_tab do |t|
+  t.exec "ls"
+end
+
+Command line executables can be called directly:
+
+this_tab do |t|
+  t.cd "~/"
+  t.ls
+end
+
+The project_dir method returns the path passed into hurl:
+
+this_tab do |t|
+  t.cd project_dir
+  t.exec "script/server run"
+end
+
+You can create a new tab using create_tab:
+
+create_tab do |t|
+  t.cd project_dir
+  t.autotest
+end
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+# Here is an example hurl.rb placed in ~/your_project/lib
+# run hurl ~/your_project to watch awesome happen.
+
+# Uncomment to use Terminal instead of iTerm
+# using Terminal
+
+# This will launch Textmate from the project directory.
+this_tab do |t|
+  t.cd project_dir
+  t.mate "." 
+end
+
+# Then open a new tab, cd to the proj dir, and launch autotest.
+create_tab do |t|
+  t.cd project_dir
+  t.exec "autotest --rails"
+end
+
+# Then open another new tab, cd to the proj dir, and start the server.
+create_tab do |t|
+  t.cd project_dir
+  t.exec "script/server run"
+end
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+appscript
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+sudo gem install hurl
 
 == LICENSE:
 
-(The MIT License)
+Copyright (c) 2008 Justin Marney
 
-Copyright (c) 2008 FIX
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+This work is licensed under the Creative Commons Attribution 3.0 United States License. To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/us/ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.

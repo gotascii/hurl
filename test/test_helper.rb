@@ -1,4 +1,5 @@
 require 'rubygems'
 require 'test/unit'
 require 'mocha'
+require 'appscript'
 require File.dirname(__FILE__) + '/../lib/hurl'

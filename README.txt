@@ -1,6 +1,6 @@
-= hurl
-
-http://hurl.rubyforge.org
+hurl
+    by Justin Marney
+    http://hurl.rubyforge.org
 
 == DESCRIPTION:
 
@@ -70,6 +70,7 @@ end
 == REQUIREMENTS:
 
 appscript
+mocha (if you want to run the tests)
 
 == INSTALL:
 

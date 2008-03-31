@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.txt</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.txt</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.txt
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Mon Mar 31 11:07:26 -0400 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h2>HURL</h2>
+<pre>
+    by Justin Marney
+    http://hurl.rubyforge.org
+</pre>
+<h2>DESCRIPTION:</h2>
+<p>
+<a href="../classes/Hurl.html">Hurl</a> is an Applescript wrapper built to
+assist in scripting terminal events. By defining some actions in a config
+file (hurls.rb) you can open terminal tabs &amp; launch applications with
+one command (hurl). <a href="../classes/ITerm.html">ITerm</a> and <a
+href="../classes/Terminal.html">Terminal</a> are supported and adding new
+apps is fairly straight forward.
+</p>
+<h2>FEATURES/PROBLEMS:</h2>
+<p>
+When hurl is called from the command line with a directory path it will
+search for a hurls.rb file in the root and the lib directory. Actions in
+this file will be executed in the order they are defined.
+</p>
+<p>
+iTerm is the default, but you can specify other applications by placing
+this in your hurls file:
+</p>
+<p>
+using <a href="../classes/Terminal.html">Terminal</a>
+</p>
+<p>
+In order to execute a command in the tab that hurl was called from:
+</p>
+<p>
+this_tab do |t|
+</p>
+<pre>
+  t.hurl &quot;ls&quot;
+</pre>
+<p>
+end
+</p>
+<p>
+Command line executables can be called directly:
+</p>
+<p>
+this_tab do |t|
+</p>
+<pre>
+  t.cd &quot;~/&quot;
+  t.ls
+</pre>
+<p>
+end
+</p>
+<p>
+The dir method returns the project directory passed into hurl:
+</p>
+<p>
+this_tab do |t|
+</p>
+<pre>
+  t.cd dir
+  t.hurl &quot;script/server run&quot;
+</pre>
+<p>
+end
+</p>
+<p>
+You can create a new tab using create_tab:
+</p>
+<p>
+create_tab do |t|
+</p>
+<pre>
+  t.cd dir
+  t.autotest
+</pre>
+<p>
+end
+</p>
+<h2>SYNOPSIS:</h2>
+<p>
+# Here is an example hurl.rb placed in ~/your_project/lib # run hurl
+~/your_project to watch awesome happen.
+</p>
+<p>
+# Uncomment to use <a href="../classes/Terminal.html">Terminal</a> instead
+of iTerm # using <a href="../classes/Terminal.html">Terminal</a>
+</p>
+<p>
+# This will launch Textmate from the project directory. this_tab do |t|
+</p>
+<pre>
+  t.cd dir
+  t.mate &quot;.&quot;
+</pre>
+<p>
+end
+</p>
+<p>
+# Then open a new tab, cd to the proj dir, and launch autotest. create_tab
+do |t|
+</p>
+<pre>
+  t.cd dir
+  t.hurl &quot;autotest --rails&quot;
+</pre>
+<p>
+end
+</p>
+<p>
+# Then open another new tab, cd to the proj dir, and start the server.
+create_tab do |t|
+</p>
+<pre>
+  t.cd dir
+  t.hurl &quot;script/server run&quot;
+</pre>
+<p>
+end
+</p>
+<h2>REQUIREMENTS:</h2>
+<p>
+appscript mocha (if you want to run the tests)
+</p>
+<h2>INSTALL:</h2>
+<p>
+sudo gem install hurl
+</p>
+<h2>LICENSE:</h2>
+<p>
+Copyright (c) 2008 Justin Marney
+</p>
+<p>
+This work is licensed under the Creative Commons Attribution 3.0 United
+States License. To view a copy of this license, visit <a
+href="http://creativecommons.org/licenses/by/3.0/us">creativecommons.org/licenses/by/3.0/us</a>/
+or send a letter to Creative Commons, 171 Second Street, Suite 300, San
+Francisco, California, 94105, USA.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

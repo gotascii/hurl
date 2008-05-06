@@ -6,7 +6,7 @@ require File.expand_path(
     File.join(File.dirname(__FILE__), '..', 'lib', 'hurl'))
 
 include Hurl
-self.dir=(ARGV.shift)
+self.dir=File.expand_path(ARGV.shift)
 using ITerm
 ["", "lib"].each do |path|
   hurls = File.join(dir, path, 'hurls.rb')

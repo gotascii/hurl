@@ -9,7 +9,7 @@ require 'hurl/terminal'
 require 'hurl/iterm'
 
 module Hurl
-  VERSION = '0.0.3'
+  VERSION = '0.0.4'
 
   attr_accessor :dir
 
